@@ -1,0 +1,19 @@
+{
+  "name": "hamilton-7-character-manager-commetuveux",
+  "version": "1.0.0",
+  "main": "index.js",
+  "scripts": {
+    "compile": "sass --watch"
+  },
+  "repository": {
+    "type": "git",
+    "url": "git+https://github.com/becodeorg/hamilton-7-character-manager-commetuveux.git"
+  },
+  "author": "",
+  "license": "ISC",
+  "bugs": {
+    "url": "https://github.com/becodeorg/hamilton-7-character-manager-commetuveux/issues"
+  },
+  "homepage": "https://github.com/becodeorg/hamilton-7-character-manager-commetuveux#readme",
+  "description": ""
+}
