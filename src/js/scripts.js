@@ -17,3 +17,17 @@ async function getCharacters() {
 }
 console.log('script ok')
 document.querySelector('#readMore_button').addEventListener('click', getCharacters)
+
+
+Menu dropdown
+function displayDropDown() { 
+document.querySelector('#dropdownButton').setAttribute('class', 'hidden')
+
+addEventListener
+('click', 'dropdownButton.removeAttribute')}
+
+document.querySeclector ('#dropdown').onclick = function() {dropdown()};
+function dropdown(){
+    document.querySelector ('#dropdown_list').classList.toggle("show");
+console.log()}
+
