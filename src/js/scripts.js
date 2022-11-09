@@ -13,10 +13,13 @@ async function getCharacters() {
     const charNickname = document.querySelector('#card_nickName');
     const charDesc = document.querySelector('#card_description');
     const charImg = document.querySelector('#card_image');
+    const dropdownEdit = document.querySelector("#dropdown_Edit");
+    //const dropdownDel = document.querySelector("dropdown_Delete");
     charImg.setAttribute('src', `data:image;base64,${chars.image}`)
     charName.innerText = chars.name;
     charNickname.innerText = chars.shortDescription;
     charDesc.innerText = chars.description;
+    dropdownEdit.href = `form.html?${urlId}`
     }
     catch (error) {
         console.log('There was une couille dans le pâté')
@@ -30,6 +33,19 @@ async function getCharacters() {
     charDesc.innerText = 'The ID you have entered is not valid, make sure to check out your link !';
     }
 }
+document.getElementById("dropdown_Delete").addEventListener("click", async () => {
+    const url_string = window.location.href;
+    const url = new URL(url_string);
+    const urlId = url.search.split('?')[1];
+    const resp = await axios.get(`https://character-database.becode.xyz/characters/${urlId}`);
+    const chars = await resp.data;
+    if (confirm(`You are about to delete ${chars.name}'s entry. Are you sure you want to continue? This cannot be undone.`)) {
+        await axios.delete(`https://character-database.becode.xyz/characters/${urlId}`);
+        alert("The selected entry has been successfully removed.")
+        window.location.href = "index.html"
+    }
+});
+
 console.log('script ok')
 document.querySelector('#readMore_button').addEventListener('click', getCharacters)
 window.onload = getCharacters();
