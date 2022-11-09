@@ -9,3 +9,16 @@ body, html {
     align-items: center;
     justify-content: center;
 }
+
+#card_charName {
+    text-shadow: white 1px 0px;
+}
+
+#editeur,
+textarea {
+  width: 500px;
+  height: 200px;
+  border: 1px solid black;
+  padding: 5px;
+  overflow: auto;
+}
