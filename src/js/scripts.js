@@ -4,6 +4,7 @@ async function getCharacters() {
     const url_string = window.location.href;
     const url = new URL(url_string);
     const urlId = url.search.split('?')[1];
+    try {
     const resp = await axios.get(`https://character-database.becode.xyz/characters/${urlId}`);
     const chars = await resp.data;
     console.log(chars)
@@ -16,6 +17,18 @@ async function getCharacters() {
     charName.innerText = chars.name;
     charNickname.innerText = chars.shortDescription;
     charDesc.innerText = chars.description;
+    }
+    catch (error) {
+        console.log('There was une couille dans le pâté')
+        const charName = document.querySelector('#card_charName');
+    const charNickname = document.querySelector('#card_nickName');
+    const charDesc = document.querySelector('#card_description');
+    const charImg = document.querySelector('#card_image');
+    charImg.setAttribute('src', `./src/assets/not-found.jpg`)
+    charName.innerText = 'Invalid ID';
+    charNickname.innerText = 'Invalid ID';
+    charDesc.innerText = 'The ID you have entered is not valid, make sure to check out your link !';
+    }
 }
 console.log('script ok')
 document.querySelector('#readMore_button').addEventListener('click', getCharacters)
