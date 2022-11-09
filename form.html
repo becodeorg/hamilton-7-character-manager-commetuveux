@@ -5,11 +5,14 @@
     <meta http-equiv="X-UA-Compatible" content="IE=edge">
     <meta name="viewport" content="width=device-width, initial-scale=1.0">
     <title>form</title>
+    <link rel="stylesheet" href="./src/index.css">
+    <script src="./src/js/form.js" type="module" defer></script>
 </head>
-<body>
+<body class="bg-gray-800">
+  <div id="card" class="flex flex-col justify-center items-center bg-gradient-to-b text-center from-teal-200 to-teal-700 rounded pt-2 p-2">
     <form id="newCharacter--form" method="POST">    
-      <div>
-        <img id="pictureImage" alt="Picture Preview">
+      <div class="flex flex-col justify-center items-center">
+        <img id="pictureImage" class="mb-3 w-24 h-24 rounded-full shadow-black shadow-2xl scale-100 hover:scale-150 ease-in duration-500" alt="Picture Preview">
         <input type="file" name="picture" id="picture" accept="image/*" required>
       </div>
         <div>
@@ -37,11 +40,12 @@
         </div>
         <br>
         <div class="form-example">
-          <input type="submit" onclick="resultat()" value="Submit new Character!" />
+          <input type="submit" class="inline-flex items-center py-2 px-4 text-sm font-medium text-center text-gray-900 bg-white rounded-lg border border-gray-300 hover:bg-gray-100 focus:ring-4 focus:outline-none focus:ring-gray-200" onclick="resultat()" value="Submit new Character!" />
         </div>
         
         
       </form>
+  </div>
 </body>
 </html> 
 
