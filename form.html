@@ -7,10 +7,7 @@
     <title>form</title>
 </head>
 <body>
-    <form id="newCharacter--form" method="POST">
-      <!--trix-->
-      <input id="trix_test" type="hidden" name="content">
-      <trix-editor input="trix_test"></trix-editor>
+    <form id="newCharacter--form" method="POST">    
       <div>
         <img id="pictureImage" alt="Picture Preview">
         <input type="file" name="picture" id="picture" accept="image/*" required>
@@ -21,13 +18,31 @@
         <div>
           <input type="text" name="nickname" placeholder="Character Nickname" id="nickname" required>
         </div>
-        <div>
-          <textarea placeholder="Character description" required></textarea>
+        
+        <input type="button" value="G" style="font-weight: bold;" onclick="commande('bold');" />
+        <input type="button" value="I" style="font-style: italic;" onclick="commande('italic');" />
+        <input type="button" value="S" style="text-decoration: underline;" onclick="commande('underline');" />
+        <input type="button" value="Lien" onclick="commande('createLink');" />
+        <select onchange="commande('heading', this.value); this.selectedIndex = 0;">
+          <option value="">Titre</option>
+          <option value="h1">Titre 1</option>
+          <option value="h2">Titre 2</option>
+          <option value="h3">Titre 3</option>
+          <option value="h4">Titre 4</option>
+          <option value="h5">Titre 5</option>
+          <option value="h6">Titre 6</option>
+        </select>
+        <div id="editeur" contentEditable>
+        <textarea placeholder="Character Description" required id="resultat"></textarea>
         </div>
+        <br>
         <div class="form-example">
-          <input type="submit" value="Send your character!">
+          <input type="submit" onclick="resultat()" value="Submit new Character!" />
         </div>
+        
+        
       </form>
-      <script src="./src/js/form.js"></script>
 </body>
-</html>
+</html> 
+
+
