@@ -1,17 +1,4 @@
 import axios from "axios";
-import Swiper, {Pagination} from "swiper";
-import 'swiper/css';
-import 'swiper/css/pagination';
-const swiper = document.querySelector(".swiper");
-new Swiper('.swiper', {
-    slidesPerView: 3,
-    modules: [Pagination],
-    direction: 'vertical', 
-    loop: true,
-    pagination: {
-        el: '.swiper-pagination',
-    }
-});
 
 const container = document.querySelector('template');
 
