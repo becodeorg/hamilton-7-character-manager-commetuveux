@@ -9,10 +9,11 @@ async function getCharacters() {
     const charNickname = document.querySelector('#card_nickName');
     const charDesc = document.querySelector('#card_description');
     const charImg = document.querySelector('#card_image');
-    charImg.setAttribute('src', `data:image/jpeg;base64,${chars[0].image}`)
-    charName.innerText = chars[0].name;
-    charNickname.innerText = chars[0].shortDescription;
-    charDesc.innerText = chars[0].description;
+    let findIndex = chars.findIndex(elements => elements.id === '301bc33c-62fe-4060-8047-45ca196019da');
+    charImg.setAttribute('src', `data:image;base64,${chars[findIndex].image}`)
+    charName.innerText = chars[findIndex].name;
+    charNickname.innerText = chars[findIndex].shortDescription;
+    charDesc.innerText = chars[findIndex].description;
 }
 console.log('script ok')
 document.querySelector('#readMore_button').addEventListener('click', getCharacters)
