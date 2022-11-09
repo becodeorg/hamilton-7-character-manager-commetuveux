@@ -1,3 +1,7 @@
+import Trix from "trix"
+document.addEventListener("trix-before-initialize", () => {
+  })
+
 document.querySelector("input[type=file]").addEventListener("change", (e) => {
     const file = e.target.files[0];
     const reader = new FileReader();
