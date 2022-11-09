@@ -35,12 +35,12 @@ document.querySelector('#readMore_button').addEventListener('click', getCharacte
 window.onload = getCharacters();
 
 //Menu dropdown
-function displayDropDown() {
+/* function displayDropDown() {
 let dropDown = document.querySelector("#dropdown");
 document.body.addEventListener('click', dropDown.classList.add('hidden'));
 dropDown.classList.remove('hidden');}
 
-document.querySelector("#dropdownButton").addEventListener('click', displayDropDown) 
+document.querySelector("#dropdownButton").addEventListener('click', displayDropDown)  */
 /* document.querySelector ('#dropdown').onclick = function() {dropdown()};
 function dropdown(){
     document.querySelector ('#dropdown_list').classList.toggle("show");
