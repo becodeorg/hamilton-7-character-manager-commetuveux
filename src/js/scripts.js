@@ -19,7 +19,7 @@ console.log('script ok')
 document.querySelector('#readMore_button').addEventListener('click', getCharacters)
 
 
-Menu dropdown
+//Menu dropdown
 function displayDropDown() { 
 document.querySelector('#dropdownButton').setAttribute('class', 'hidden')
 
