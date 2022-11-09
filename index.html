@@ -6,26 +6,50 @@
     <meta name="viewport" content="width=device-width, initial-scale=1.0" />
     <link rel="stylesheet" href="./src/index.css">
     <title>Character-manager</title>
+    <script src="./src/js/manager.js" type="module"></script>
   </head>
-  <body>
-  <input type="button" value="G" style="font-weight: bold;" onclick="commande('bold');" />
-<input type="button" value="I" style="font-style: italic;" onclick="commande('italic');" />
-<input type="button" value="S" style="text-decoration: underline;" onclick="commande('underline');" />
-<input type="button" value="Lien" onclick="commande('createLink');" />
-<input type="button" value="Image" onclick="commande('insertImage');" />
-<select onchange="commande('heading', this.value); this.selectedIndex = 0;">
-  <option value="">Titre</option>
-  <option value="h1">Titre 1</option>
-  <option value="h2">Titre 2</option>
-  <option value="h3">Titre 3</option>
-  <option value="h4">Titre 4</option>
-  <option value="h5">Titre 5</option>
-  <option value="h6">Titre 6</option>
-</select>
-<div id="editeur" contentEditable></div>
-<input type="button" onclick="resultat();" value="Send Character!" />
-<br />
-<textarea id="resultat"></textarea>
-  </body>
+  <body class="bg-gray-800 grid grid-cols-3 ml-auto gap-4">
+    <template>
+      <div id="container_card" class="flex flex-col justify-items-center w-4/5 rounded-lg border border-gray-200 shadow-md bg-gray-800">
+        <div id="container_dropdown" class="flex justify-end px-4 pt-4">
+            <button id="dropdownButton" data-dropdown-toggle="dropdown" class="inline-block text-gray-300  hover:bg-gray-100 focus:ring-4 focus:outline-none focus:ring-gray-200 rounded-lg text-sm p-0" type="button">
+                <span class="sr-only">Open dropdown</span>
+                <svg class="w-6 h-6" aria-hidden="true" fill="currentColor" viewBox="0 0 20 20" xmlns="http://www.w3.org/2000/svg"><path d="M6 10a2 2 0 11-4 0 2 2 0 014 0zM12 10a2 2 0 11-4 0 2 2 0 014 0zM16 12a2 2 0 100-4 2 2 0 000 4z"></path></svg>
+            </button>
+            <!-- Dropdown menu -->
+          
+            <div id="dropdown" class="hidden z-10 w-44 text-base list-none bg-white rounded divide-y divide-gray-100 shadow"
+            data-popper-reference-hidden="" data-popper-escaped="" data-popper-placement="bottom" style="position: absolute; inset: 0px auto auto 0px; margin: 0px; transform: translate(0px, 2998px);" >
+                <ul id="dropdown_list" class="py-1" aria-labelledby="dropdownButton">
+                <li>
+                    <a href="#" class="block py-2 px-4 text-sm text-gray-700 hover:bg-gray-100">Edit card</a>
+                </li>
+                <li>
+                    <a href="#" class="block py-2 px-4 text-sm text-red-600 hover:bg-gray-100 ">Delete card</a>
+                </li>
+                <li>
+                  <a href="#" class="block py-2 px-4 text-sm text-gray-700 hover:bg-gray-100 md:hidden">Create card</a>
+              </li>
+                </ul>
+            </div>
+          </div>
 
-    </html>
+          <!--Card-->
+        <div id="card" class="flex flex-col items-center bg-teal-700 rounded-lg pt-2 p-2">
+          <br>
+            <img id="card_image" class="mb-3 w-24 h-24 rounded-full shadow-black shadow-2xl"  alt="character-image">
+            <h2 id="card_charName" class="mb-1 text-xl font-medium uppercase text-gray-600">CHARNAME</h2>
+            <h3 id="card_nickName" class="text-sm text-gray-400 uppercase">NICKNAME</h3>
+            <p id="card_description" class="text-sm text-white p-2 w-4/5 md:w-2/3"> Lorem ipsum dolor sit amet, consectetur adipiscing elit. Sed non risus. Suspendisse lectus tortor, dignissim sit amet, adipiscing nec </p>
+            <div id="container_readMore" class="flex m-4 space-x-3 md:mt-6">
+                <a id="readMore_button" href="#" class="inline-flex items-center py-2 px-4 text-sm font-medium text-center text-gray-900 bg-white rounded-lg border border-gray-300 hover:bg-gray-100 focus:ring-4 focus:outline-none focus:ring-gray-200">Read More</a>
+                <br>
+            </div>
+              <!-- <div id="container_+" class=""> -->
+              <a href="#" id="create_card_button" class="hidden self-end py-0 px-3 mr-2 mb-2 text-sm font-medium text-center text-gray-900 bg-white rounded-full border border-gray-300 hover:bg-gray-100 focus:ring-4 focus:outline-none focus:ring-gray-200">+</a>
+          <!-- </div> -->
+        </div>
+      </div>
+    </template>
+  </body>
+</html>
