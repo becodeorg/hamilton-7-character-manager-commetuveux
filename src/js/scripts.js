@@ -1,21 +1,21 @@
 import axios from "axios";
 
 async function getCharacters() {
-    const resp = await axios.get('https://character-database.becode.xyz/characters');
+    const url_string = window.location.href;
+    const url = new URL(url_string);
+    const urlId = url.search.split('?')[1];
+    const resp = await axios.get(`https://character-database.becode.xyz/characters/${urlId}`);
     const chars = await resp.data;
-    const urlId = this.href.substring(this.href.lastIndexOf('?') + 1);
-    console.log(urlId)
-    console.log(chars.length)
     console.log(chars)
+    console.log(urlId);
     const charName = document.querySelector('#card_charName');
     const charNickname = document.querySelector('#card_nickName');
     const charDesc = document.querySelector('#card_description');
     const charImg = document.querySelector('#card_image');
-    let findIndex = chars.findIndex(elements => elements.id === urlId);
-    charImg.setAttribute('src', `data:image;base64,${chars[findIndex].image}`)
-    charName.innerText = chars[findIndex].name;
-    charNickname.innerText = chars[findIndex].shortDescription;
-    charDesc.innerText = chars[findIndex].description;
+    charImg.setAttribute('src', `data:image;base64,${chars.image}`)
+    charName.innerText = chars.name;
+    charNickname.innerText = chars.shortDescription;
+    charDesc.innerText = chars.description;
 }
 console.log('script ok')
 document.querySelector('#readMore_button').addEventListener('click', getCharacters)
