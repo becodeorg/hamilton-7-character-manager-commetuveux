@@ -89,6 +89,7 @@ else {
   }
   catch (error) {
     alert('There was an error while getting the character informations. Has it been removed by someone else ?');
+    window.location.href = "index.html"
   }
   document.querySelector("#form_Submit").value = "Update Character!"
 };
