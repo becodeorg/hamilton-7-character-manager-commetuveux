@@ -14,7 +14,7 @@
   <body class="bg-gray-800">
     <!-- phoneSize-->
   
-    <div id="container_card" class="flex flex-col justify-items-center w-4/5 rounded-lg border border-gray-200 shadow-md bg-gray-800 m-2">
+    <div id="container_card" class="flex flex-col justify-items-center w-4/5 rounded-lg border border-gray-200 shadow-md bg-gray-800 m-2" data-tilt data-tilt-scale="1.1" style="transform: perspective(1000px) rotateX(0deg) rotateY(0deg) scale3d(1, 1, 1); will-change: transform;">
       <div id="container_dropdown" class="flex justify-end px-4 pt-4">
           <button id="dropdownButton" data-dropdown-toggle="dropdown" class="inline-block text-gray-300  hover:bg-gray-100 focus:ring-4 focus:outline-none focus:ring-gray-200 rounded-lg text-sm p-0" type="button">
               <span class="sr-only">Open dropdown</span>
@@ -37,7 +37,7 @@
         </div>
 
         <!--Card-->
-      <div id="card" class="flex flex-col items-center bg-gradient-to-b from-teal-200 to-teal-700 rounded-b-lg pt-2 p-2" data-tilt data-tilt-scale="1.1" style="transform: perspective(1000px) rotateX(0deg) rotateY(0deg) scale3d(1, 1, 1); will-change: transform;">
+      <div id="card" class="flex flex-col items-center bg-gradient-to-b from-teal-200 to-teal-700 rounded-b-lg pt-2 p-2">
         <br>
           <img id="card_image" class="mb-3 w-24 h-24 rounded-full shadow-black shadow-2xl scale-100 hover:scale-150 ease-in duration-500"  alt="character-image">
           <h5 id="card_charName" class="mb-1 text-xl font-medium uppercase text-gray-800">CHARNAME</h5>
@@ -54,7 +54,5 @@
     </div>
     <script src="https://unpkg.com/flowbite@1.5.3/dist/flowbite.js"></script>
     <script type="text/javascript" src="vanilla-tilt.js"></script>
-    <script type=”text/javascript”></script>
-    
   </body>
 </html>
