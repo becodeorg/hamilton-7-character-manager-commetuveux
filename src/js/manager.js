@@ -17,6 +17,8 @@ async function getCharacters() {
         Node.querySelector("#card_description").innerHTML = `${chars[i].description}`;
         Node.querySelector("#readMore_button").href = `card.html?${chars[i].id}`;
         Node.querySelector("#readMore_button").innerText = `See the Character`;
+        Node.querySelector("#dropdown").id = `dropdown${[i]}`;
+        Node.querySelector("#dropdownButton").setAttribute('data-dropdown-toggle', `dropdown${[i]}`);
         document.body.prepend(Node)
     }
     }
