@@ -9,6 +9,7 @@ async function getCharacters() {
     const chars = await resp.data;
     console.log(chars)
     console.log(urlId);
+    document.title = `${chars.name}'s Card`
     const charName = document.querySelector('#card_charName');
     const charNickname = document.querySelector('#card_nickName');
     const charDesc = document.querySelector('#card_description');
