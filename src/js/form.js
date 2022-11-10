@@ -86,6 +86,28 @@ else {
   charNickname.value = char.shortDescription;
   charDesc.value = char.description;
   charImg.src = `data:image;base64,${char.image}`;
+  document.querySelector('#form_Submit').addEventListener("click", (event) => {
+    event.preventDefault();
+    const input = Array.from(document.querySelectorAll("input[type=text], textarea"));
+    const values = input.map(({ value }) => value.trim());
+    const [name, shortDescription, description] = values;
+    console.log(values);
+    if (confirm(`You are about to update ${values[0]}'s entry. Is that what you want ?`)) {
+      try {
+        axios.put(`https://character-database.becode.xyz/characters/${urlId}`, {
+            picture: picture,
+            name: name,
+            shortDescription:shortDescription,
+            description: description
+        });
+        window.location.href = "index.html"
+        alert('Character successfully updated!')
+    }
+    catch (error) {
+      console.log('There was une couille dans le pâté')
+    }
+  }
+  })
   }
   catch (error) {
     alert('There was an error while getting the character informations. Has it been removed by someone else ?');
