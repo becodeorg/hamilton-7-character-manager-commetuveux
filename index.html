@@ -10,7 +10,7 @@
   </head>
   <body class="bg-gray-800">
     <template>
-        <div id="container_card" class="flex flex-col justify-items-center rounded-lg border border-gray-200 shadow-md bg-gray-800 ">
+        <div id="container_card" class="flex flex-col justify-items-center rounded-lg border border-gray-200 shadow-md bg-gray-800">
           <div id="container_dropdown" class="flex justify-end px-4 pt-4">
               <button id="dropdownButton" data-dropdown-toggle="dropdown" class="inline-block text-gray-300  hover:bg-gray-100 focus:ring-4 focus:outline-none focus:ring-gray-200 rounded-lg text-sm p-0" type="button">
                   <span class="sr-only">Open dropdown</span>
@@ -35,7 +35,7 @@
             <!--Card-->
           <div id="card" class="flex flex-col items-center text-center bg-gradient-to-b from-teal-200 to-teal-700 rounded-b-lg pt-2 p-2">
             <br>
-              <img id="card_image" class="mb-3 w-24 h-24 rounded-full shadow-black shadow-2xl"  alt="character-image">
+              <img id="card_image" class="mb-3 w-24 h-24 rounded-full shadow-black shadow-2xl"  alt="character-image"  data-tilt data-tilt-scale="1.1" style="transform: perspective(1000px) rotateX(0deg) rotateY(0deg) scale3d(1, 1, 1); will-change: transform;">
               <h5 id="card_charName" class="mb-1 text-xl font-medium uppercase text-gray-800">CHARNAME</h5>
               <span id="card_nickName" class="text-sm text-gray-800 uppercase">NICKNAME</span>
               <span id="card_description" class="text-sm text-white p-2 w-4/5 md:w-2/3 truncate"> Lorem ipsum dolor sit amet, consectetur adipiscing elit. Sed non risus. Suspendisse lectus tortor, dignissim sit amet, adipiscing nec </span>
@@ -55,6 +55,7 @@
     <div id="container_card" class="flex flex-col items-center justify-center rounded-lg border border-gray-200 shadow-md bg-gray-800 h-5/6">
       <a href="form.html" id="newButton" class="hidden h-full w-full"><button class="text-white bg-gradient-to-b from-teal-200 to-teal-700 hover:bg-gradient-to-br focus:ring-4 focus:outline-none focus:ring-teal-300 dark:focus:ring-teal-800 font-medium rounded-lg px-5 py-2.5 text-center text-3xl h-full w-full">+</button></a>
     </div>
-    <script src="https://unpkg.com/flowbite@1.5.3/dist/flowbite.js"></script>
+    <script id="flowbite"></script>
+    <script id="tilt" type="text/javascript"></script>
   </body>
 </html>
