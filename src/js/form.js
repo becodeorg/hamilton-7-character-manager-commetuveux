@@ -26,13 +26,14 @@ function resultat() {
 
 
 
-document.querySelector("input[type=file]").addEventListener("change", async (e) => {
+document.querySelector("input[type=file]").addEventListener("change", (e) => {
   const file = e.target.files[0];
   const reader = new FileReader();
   reader.onloadend = () => {
       reader.result.replace('data:', '').replace(/^.+,/, '');
   };
   reader.readAsDataURL(file)
+  alert(reader.result);
 });
 picture.onchange = () => {
   const [file] = picture.files
