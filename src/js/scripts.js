@@ -22,8 +22,8 @@ async function getCharacters() {
     dropdownEdit.href = `form.html?${urlId}`
     }
     catch (error) {
-        console.log('There was une couille dans le pâté')
-        const charName = document.querySelector('#card_charName');
+    console.log('There was une couille dans le pâté')
+    const charName = document.querySelector('#card_charName');
     const charNickname = document.querySelector('#card_nickName');
     const charDesc = document.querySelector('#card_description');
     const charImg = document.querySelector('#card_image');
