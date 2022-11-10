@@ -36,4 +36,6 @@ async function getCharacters() {
     document.querySelector("body").setAttribute('class', 'bg-gray-800 grid grid-cols-1 md:grid-cols-2 lg:grid-cols-3 w-11/12 m-auto gap-4')
     document.querySelector("#newButton").classList.remove('hidden')
     document.querySelector("#loading").classList.add('hidden')
+    document.querySelector("#flowbite").src = "https://unpkg.com/flowbite@1.5.3/dist/flowbite.js";
+    document.querySelector("#tilt").src = "vanilla-tilt.js";
 }
