@@ -74,18 +74,21 @@ else {
   const urlId = url.search.split('?')[1];
   try {
   const resp = await axios.get(`https://character-database.becode.xyz/characters/${urlId}`);
-  const chars = await resp.data;
-  console.log(chars)
+  const char = await resp.data;
+  console.log(char)
   console.log(urlId);
-  const charName = document.querySelector('#card_charName');
-  const charNickname = document.querySelector('#card_nickName');
-  const charDesc = document.querySelector('#card_description');
-  const charImg = document.querySelector('#card_image');
-  const dropdownEdit = document.querySelector("#dropdown_Edit");
+  const charName = document.querySelector('input[name="name"]');
+  const charNickname = document.querySelector('input[name="nickname"]');
+  const charDesc = document.querySelector('textarea');
+  const charImg = document.querySelector('#pictureImage');
+  console.log(charImg)
+  charName.value = char.name;
+  charNickname.value = char.shortDescription;
+  charDesc.value = char.description;
+  charImg.src = `data:image;base64,${char.image}`;
   }
   catch (error) {
     alert('There was an error while getting the character informations. Has it been removed by someone else ?');
-    window.location.href = "index.html"
   }
   document.querySelector("#form_Submit").value = "Update Character!"
 };
