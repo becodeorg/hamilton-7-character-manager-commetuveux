@@ -68,7 +68,13 @@ function dropdown(){
 console.log()} */
 
 // Vanilla- tilt
-vanillaTilt.init (document.querySelector("#container_card"), {
+
+let scaleOnHover() {
+    addEventListene.#card('hover', 'scaleOn'),
+
+vanillaTilt.init (document.querySelector("#card"), {
     max:25, 
     speed:400,
+    glare: true,
 });
+}
