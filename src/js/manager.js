@@ -24,6 +24,14 @@ async function getCharacters() {
         Node.querySelector("#readMore_button").innerText = `See the Character`;
         Node.querySelector("#dropdown").id = `dropdown${[i]}`;
         Node.querySelector("#dropdownButton").setAttribute('data-dropdown-toggle', `dropdown${[i]}`);
+        Node.querySelector("#dropdownDelete").addEventListener("click", async () => {
+            if (confirm(`You are about to delete ${chars[i].name}'s entry. Are you sure you want to continue? This cannot be undone.`)) {
+                await axios.delete(`https://character-database.becode.xyz/characters/${chars[i].id}`);
+                alert("The selected entry has been successfully removed.")
+                window.location.href = "index.html"
+            }
+        });
+        Node.querySelector("#dropdownEdit").href = `form.html?${chars[i].id}`
         document.body.prepend(Node)
     }
     }
