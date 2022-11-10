@@ -33,7 +33,6 @@ document.querySelector("input[type=file]").addEventListener("change", (e) => {
       reader.result.replace('data:', '').replace(/^.+,/, '');
   };
   reader.readAsDataURL(file)
-  alert(reader.result);
 });
 picture.onchange = () => {
   const [file] = picture.files
