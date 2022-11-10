@@ -65,3 +65,8 @@ function dropdown(){
     document.querySelector ('#dropdown_list').classList.toggle("show");
 console.log()} */
 
+// Vanilla- tilt
+vanillaTilt.init (document.querySelector("#container_card"), {
+    max:25, 
+    speed:400,
+});
