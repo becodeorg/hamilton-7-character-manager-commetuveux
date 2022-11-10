@@ -33,6 +33,8 @@ async function getCharacters() {
     charDesc.innerText = 'The ID you have entered is not valid, make sure to check out your link !';
     }
 }
+
+//Deletion script
 document.getElementById("dropdown_Delete").addEventListener("click", async () => {
     const url_string = window.location.href;
     const url = new URL(url_string);
