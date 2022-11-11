@@ -32,7 +32,7 @@ async function getCharacters() {
             }
         });
         Node.querySelector("#dropdownEdit").href = `form.html?${chars[i].id}`
-        document.querySelector(".swiper-wrapper").insertBefore(Node, document.querySelector("#newCard"));
+        document.body.insertBefore(Node, document.querySelector("#newCard"));
     }
     }
     catch (error) {
@@ -46,7 +46,6 @@ async function getCharacters() {
     document.querySelector("#swiper").src = "https://cdn.jsdelivr.net/npm/swiper@8/swiper-bundle.min.js";
     document.querySelector("#tilt").src = "vanilla-tilt.js";
     let searchBar = document.querySelector("#searchBar");
-    document.querySelector(".swiper").classList.remove("hidden");
     searchBar.classList.remove("hidden");
     const swiper = new swiper('.swiper', {
         // Optional parameters
