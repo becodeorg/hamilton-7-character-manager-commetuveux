@@ -12,7 +12,7 @@ async function getCharacters() {
     for (let i = 0; i < chars.length; i++) {
         let Node = document.importNode(container.content, true);
         if (chars[i].image != "" || chars[i].image != undefined) {
-        Node.querySelector("#card_image").src = `data:image/gif;base64,${chars[i].image}`;
+        Node.querySelector("#card_image").src = `data:image/png;base64,${chars[i].image}`;
         }
         else {
         Node.querySelector("#card_image").src = `./src/assets/not-found.jpg`;
