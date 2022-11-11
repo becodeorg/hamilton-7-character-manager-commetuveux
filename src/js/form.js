@@ -35,7 +35,7 @@ function encode() {
     fileReader.onload = function(fileLoadedEvent) {
       let srcData = fileLoadedEvent.target.result;
       pictureImage.src = srcData;
-      console.log(document.getElementById("pictureImage").src.replace('data:image/', '').replace(/^.+,/, ''));
+      console.log(document.getElementById("pictureImage").src);
     }
     fileReader.readAsDataURL(imageFile);
   }
