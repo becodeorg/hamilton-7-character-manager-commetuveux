@@ -1,4 +1,5 @@
 import axios from "axios";
+import VanillaTilt from "vanilla-tilt"
 
 async function getCharacters() {
     const url_string = window.location.href;
@@ -71,10 +72,9 @@ console.log()} */
 
 /* let scaleOnHover() {
     addEventListene.#card('hover', 'scaleOn'),
-
-vanillaTilt.init (document.querySelector("#card"), {
+*/
+VanillaTilt.init (document.querySelector("#card"), {
     max:25, 
     speed:400,
     glare: true,
 });
-} */
