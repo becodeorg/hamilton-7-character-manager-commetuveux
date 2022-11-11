@@ -32,27 +32,31 @@ async function getCharacters() {
             }
         });
         Node.querySelector("#dropdownEdit").href = `form.html?${chars[i].id}`
-        document.body.prepend(Node)
+        document.querySelector(".swiper-wrapper").insertBefore(Node, document.querySelector("#newCard"));
     }
     }
-    catch {
-        if (chars[i].image === "" ) {
-            let Node = document.importNode(container.content, true);
-            Node.querySelector("#card_image").src = `./src/assets/not-found.jpg`;
+    catch (error) {
+        console.log(error);
         }
     }
     document.querySelector("body").setAttribute("class", "bg-gray-800 grid grid-cols-1 md:grid-cols-2 lg:grid-cols-3 w-11/12 m-auto gap-4")
     document.querySelector("#newButton").classList.remove("hidden")
     document.querySelector("#loading").classList.add('hidden')
     document.querySelector("#flowbite").src = "https://unpkg.com/flowbite@1.5.3/dist/flowbite.js";
+    document.querySelector("#swiper").src = "https://cdn.jsdelivr.net/npm/swiper@8/swiper-bundle.min.js";
     document.querySelector("#tilt").src = "vanilla-tilt.js";
-    let searchBar = document.createElement("input");
-    searchBar.setAttribute("type", "text");
-    searchBar.setAttribute("placeholder", "Search for a character")
-    searchBar.setAttribute("class", "col-span-1 md:col-span-2 lg:col-span-3 w-full h-6 mt-3 text-center");
-    document.body.prepend(searchBar);
-}
-
-    document.querySelector("input").addEventListener('onkeyup', (event) => {
-        console.log(event)
-    })
+    let searchBar = document.querySelector("#searchBar");
+    document.querySelector(".swiper").classList.remove("hidden");
+    searchBar.classList.remove("hidden");
+    const swiper = new swiper('.swiper', {
+        // Optional parameters
+        direction: 'vertical',
+        slidesPerView: 3,
+        spaceBetween: 30,
+        loop: true,},);
+    searchBar.addEventListener('keyup', (event) => {
+        console.log(event.key)
+            if (searchBar.value.length == 0) {
+                
+            }
+    });
