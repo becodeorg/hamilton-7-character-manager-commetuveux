@@ -50,7 +50,7 @@ async function getCharacters() {
     searchBar.classList.remove("hidden");
     const swiper = new swiper('.swiper', {
         // Optional parameters
-        direction: 'vertical',
+        direction: 'horizontal',
         slidesPerView: 3,
         spaceBetween: 30,
         loop: true,},);
