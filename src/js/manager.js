@@ -12,7 +12,7 @@ async function getCharacters() {
     for (let i = 0; i < chars.length; i++) {
         let Node = document.importNode(container.content, true);
         if (chars[i].image != "" || chars[i].image != undefined) {
-        Node.querySelector("#card_image").src = `data:image/png;base64,${chars[i].image}`;
+        Node.querySelector("#card_image").src = `data:image/gif;base64,${chars[i].image}`;
         }
         else {
         Node.querySelector("#card_image").src = `./src/assets/not-found.jpg`;
@@ -41,9 +41,18 @@ async function getCharacters() {
             Node.querySelector("#card_image").src = `./src/assets/not-found.jpg`;
         }
     }
-    document.querySelector("body").setAttribute('class', 'bg-gray-800 grid grid-cols-1 md:grid-cols-2 lg:grid-cols-3 w-11/12 m-auto gap-4')
-    document.querySelector("#newButton").classList.remove('hidden')
+    document.querySelector("body").setAttribute("class", "bg-gray-800 grid grid-cols-1 md:grid-cols-2 lg:grid-cols-3 w-11/12 m-auto gap-4")
+    document.querySelector("#newButton").classList.remove("hidden")
     document.querySelector("#loading").classList.add('hidden')
     document.querySelector("#flowbite").src = "https://unpkg.com/flowbite@1.5.3/dist/flowbite.js";
     document.querySelector("#tilt").src = "vanilla-tilt.js";
+    let searchBar = document.createElement("input");
+    searchBar.setAttribute("type", "text");
+    searchBar.setAttribute("placeholder", "Search for a character")
+    searchBar.setAttribute("class", "col-span-1 md:col-span-2 lg:col-span-3 w-full h-6 mt-3 text-center");
+    document.body.prepend(searchBar);
 }
+
+    document.querySelector("input").addEventListener('onkeyup', (event) => {
+        console.log(event)
+    })
