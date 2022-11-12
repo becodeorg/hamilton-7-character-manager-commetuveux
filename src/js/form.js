@@ -97,6 +97,7 @@ else {
     const [name, shortDescription, description] = values;
     const picturez = document.getElementById("pictureImage").src.replace('data:image/', '').replace(/^.+,/, '');
     console.log(values);
+    console.log(picturez);
     if (confirm(`You are about to update ${values[0]}'s entry. Is that what you want ?`)) {
       try {
         axios.put(`https://character-database.becode.xyz/characters/${urlId}`, {
@@ -105,8 +106,8 @@ else {
             shortDescription:shortDescription,
             description: description
         });
-        window.location.href = "index.html"
         alert('Character successfully updated!')
+        window.location.href = "index.html";
     }
     catch (error) {
       console.log('There was une couille dans le pâté')
