@@ -1,4 +1,4 @@
-import axios from "./axios";
+import axios from "axios";
 
 const container = document.querySelector('template');
 
@@ -34,28 +34,30 @@ async function getCharacters() {
         Node.querySelector("#dropdownEdit").href = `form.html?${chars[i].id}`
         document.body.insertBefore(Node, document.querySelector("#newCard"));
     }
-    }
-    catch (error) {
-        console.log(error);
-        }
-    }
-    document.querySelector("body").setAttribute("class", "bg-gray-800 grid grid-cols-1 md:grid-cols-2 lg:grid-cols-3 w-11/12 m-auto gap-4")
-    document.querySelector("#newButton").classList.remove("hidden")
-    document.querySelector("#loading").classList.add('hidden')
-    document.querySelector("#flowbite").src = "https://unpkg.com/flowbite@1.5.3/dist/flowbite.js";
-    document.querySelector("#swiper").src = "https://cdn.jsdelivr.net/npm/swiper@8/swiper-bundle.min.js";
+    document.querySelector("body").setAttribute("class", "bg-gray-800 grid grid-cols-1 md:grid-cols-2 lg:grid-cols-3 w-11/12 m-auto gap-4");
+    document.querySelector("#newButton").classList.remove("hidden");
     document.querySelector("#tilt").src = "vanilla-tilt.js";
     let searchBar = document.querySelector("#searchBar");
     searchBar.classList.remove("hidden");
-    const swiper = new swiper('.swiper', {
-        // Optional parameters
-        direction: 'horizontal',
-        slidesPerView: 3,
-        spaceBetween: 30,
-        loop: true,},);
     searchBar.addEventListener('keyup', (event) => {
         console.log(event.key)
             if (searchBar.value.length == 0) {
                 
             }
     });
+    document.querySelector("#flowbite").src = "https://unpkg.com/flowbite@1.5.3/dist/flowbite.js";
+    document.querySelector("#loading").classList.add('hidden')
+    }
+    catch (error) {
+        console.log(error);
+        }
+    }
+    
+    // Swiper part, broken for now
+    // document.querySelector("#swiper").src = "https://cdn.jsdelivr.net/npm/swiper@8/swiper-bundle.min.js";
+    /* const swiper = new swiper('.swiper', {
+        // Optional parameters
+        direction: 'horizontal',
+        slidesPerView: 3,
+        spaceBetween: 30,
+        loop: true,},); */
