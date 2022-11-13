@@ -74,7 +74,7 @@ console.log()} */
     addEventListene.#card('hover', 'scaleOn'),
 */
 VanillaTilt.init (document.querySelector("#card"), {
-    max:25, 
+    max:5, 
     speed:400,
     glare: true,
 });
