@@ -2,14 +2,14 @@
 <html lang="en">
   <head>
     <meta charset="UTF-8" />
-    <link rel="icon" type="image/svg+xml" href="/becodeorg/hamilton-7-character-manager-commetuveux/vite.svg" />
+    <link rel="icon" type="image/svg+xml" href="/hamilton-7-character-manager-commetuveux/dist/vite.svg" />
     <meta name="viewport" content="width=device-width, initial-scale=1.0" />
     
     <link rel="stylesheet" href="https://cdn.jsdelivr.net/npm/swiper@8/swiper-bundle.min.css">
     <title>Character-manager</title>
     
-    <script type="module" crossorigin src="/becodeorg/hamilton-7-character-manager-commetuveux/assets/index.ef04854f.js"></script>
-    <link rel="stylesheet" href="/becodeorg/hamilton-7-character-manager-commetuveux/assets/index.4c663686.css">
+    <script type="module" crossorigin src="/hamilton-7-character-manager-commetuveux/dist/assets/index.f8a96913.js"></script>
+    <link rel="stylesheet" href="/hamilton-7-character-manager-commetuveux/dist/assets/index.4c663686.css">
   </head>
   <body class="bg-gray-800">
     <input type="text" id="searchBar" placeholder="Search for a character" class="hidden col-span-1 md:col-span-2 lg:col-span-3 lg w-full h-6 mt-3 text-center rounded-lg">
@@ -40,8 +40,8 @@
               <div id="card" class="flex flex-col items-center text-center bg-gradient-to-b from-teal-200 to-teal-700 hover:bg-gradient-to-br rounded-b-lg pt-2 p-2 h-80">
                 <br>
                   <img id="card_image" class="mb-3 w-24 h-24 rounded-full shadow-black shadow-2xl"  alt="character-image"  data-tilt data-tilt-scale="1.1" style="transform: translateZ(20px)">
-                  <h5 id="card_charName" class="mb-1 text-xl font-medium uppercase text-gray-800">CHARNAME</h5>
-                  <span id="card_nickName" class="text-sm text-gray-800 uppercase">NICKNAME</span>
+                  <h5 id="card_charName" class="mb-1 text-xl font-medium uppercase text-gray-800 truncate">CHARNAME</h5>
+                  <span id="card_nickName" class="text-sm text-gray-800 uppercase truncate">NICKNAME</span>
                   <span id="card_description" class="text-sm text-white p-2 w-4/5 md:w-2/3 truncate"> Lorem ipsum dolor sit amet, consectetur adipiscing elit. Sed non risus. Suspendisse lectus tortor, dignissim sit amet, adipiscing nec </span>
                   <div id="container_readMore" class="flex m-4 space-x-3 md:mt-6">
                       <a id="readMore_button" href="" class="inline-flex items-center py-2 px-4 text-sm font-medium text-center text-gray-900 bg-white rounded-lg border border-gray-300 hover:bg-gray-100 focus:ring-4 focus:outline-none focus:ring-gray-200">Read More</a>
@@ -58,10 +58,10 @@
           <a href="form.html" id="newButton" class=" hidden w-full"><button class="text-white bg-gradient-to-b from-teal-200 to-teal-700 hover:bg-gradient-to-br focus:ring-4 focus:outline-none focus:ring-teal-300 dark:focus:ring-teal-800 font-medium rounded-bl-lg rounded-br-lg px-5 py-2.5 text-center text-3xl h-80 w-full">+</button></a>
         </div>
     <div id="loading" class="w-full h-full flex items-center justify-center">
-      <img src="/becodeorg/hamilton-7-character-manager-commetuveux/assets/loading.66cc2de7.svg">
+      <img src="/hamilton-7-character-manager-commetuveux/dist/assets/loading.66cc2de7.svg">
     </div>
-    <script id="flowbite"></script>
-    <script id="tilt" type="text/javascript"></script>
-    <script id="swiper"></script>
+    <script id="flowbite" type="module"></script>
+    <script id="tilt" type="module"></script>
+    <script id="swiper" type="module"></script>
   </body>
 </html>
