@@ -13,7 +13,7 @@ export default defineConfig({
             }
         }
     },
-    base: '/hamilton-7-character-manager-commetuveux/dist/', 
+    base: '/hamilton-7-character-manager-commetuveux/', 
     plugins: [topLevelAwait({
         promiseExportName: "__tla",
         promiseImportName: i => `__tla_${i}`
