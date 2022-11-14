@@ -8,9 +8,9 @@ async function getCharacters() {
     try {
     const resp = await axios.get('https://character-database.becode.xyz/characters');
     const chars = await resp.data;
-    console.log(chars);
+    // console.log(chars);
     for (let i = 0; i < chars.length; i++) {
-        console.log(chars[i].image)
+        // console.log(chars[i].image)
         let Node = document.importNode(container.content, true);
         if (chars[i].image == "" || chars[i].image == undefined) {
             Node.querySelector("#card_image").src = `./src/assets/not-found.jpg`;
