@@ -52,8 +52,6 @@ document.getElementById("dropdown_Delete").addEventListener("click", async () =>
     }
 });
 
-console.log('script ok')
-document.querySelector('#readMore_button').addEventListener('click', getCharacters)
 window.onload = getCharacters();
 
 //Menu dropdown
