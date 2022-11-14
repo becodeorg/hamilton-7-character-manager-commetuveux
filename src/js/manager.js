@@ -16,7 +16,6 @@ async function getCharacters() {
             Node.querySelector("#card_image").src = `./src/assets/not-found.jpg`;
         }
         else {
-            
             Node.querySelector("#card_image").src = `data:image/gif;base64,${chars[i].image}`
         }
         Node.querySelector("#card_charName").innerText = `${chars[i].name}`;
