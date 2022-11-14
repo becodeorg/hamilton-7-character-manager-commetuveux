@@ -10,12 +10,14 @@ async function getCharacters() {
     const chars = await resp.data;
     console.log(chars);
     for (let i = 0; i < chars.length; i++) {
+        console.log(chars[i].image)
         let Node = document.importNode(container.content, true);
-        if (chars[i].image != "" || chars[i].image != undefined) {
-        Node.querySelector("#card_image").src = `data:image/gif;base64,${chars[i].image}`;
+        if (chars[i].image == "" || chars[i].image == undefined) {
+            Node.querySelector("#card_image").src = `./src/assets/not-found.jpg`;
         }
         else {
-        Node.querySelector("#card_image").src = `./src/assets/not-found.jpg`;
+            
+            Node.querySelector("#card_image").src = `data:image/gif;base64,${chars[i].image}`
         }
         Node.querySelector("#card_charName").innerText = `${chars[i].name}`;
         Node.querySelector("#card_nickName").innerText = `${chars[i].shortDescription}`;
