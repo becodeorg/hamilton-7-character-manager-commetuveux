@@ -16,34 +16,40 @@
         <input type="file" name="image" id="picture" accept="image/*" required>
       </div>
         <div>
-          <input type="text" name="name" placeholder="Character Name" id="name" required>
+          <br>
+          <input type="text" name="name" placeholder="Character Name" id="name" required class="active:border-solid border-gray-800 ">
         </div>
+        <br>
         <div>
-          <input type="text" name="nickname" placeholder="Character Nickname" id="nickname" required>
+          <input type="text" name="nickname" placeholder="Character Nickname" id="nickname" required class="active:border-solid border-gray-800 ">
         </div>
-        
-        <input type="button" value="G" style="font-weight: bold;" onclick="commande('bold');" />
-        <input type="button" value="I" style="font-style: italic;" onclick="commande('italic');" />
-        <input type="button" value="S" style="text-decoration: underline;" onclick="commande('underline');" />
-        <input type="button" value="Lien" onclick="commande('createLink');" />
-        <select onchange="commande('heading', this.value); this.selectedIndex = 0;">
-          <option value="">Titre</option>
-          <option value="h1">Titre 1</option>
-          <option value="h2">Titre 2</option>
-          <option value="h3">Titre 3</option>
-          <option value="h4">Titre 4</option>
-          <option value="h5">Titre 5</option>
-          <option value="h6">Titre 6</option>
-        </select>
-        <div id="dummy"></div>
-        <div id="editeur" contentEditable>
-          <textarea placeholder="Character Description" required id="resultat"></textarea>
+        <br>
+
+        <div class="wp-webdeasy-comment-editor">
+          <div class="toolbar">
+              <div class="box flex flex-row justify-end bg-slate-800 rounded pt-2 p-2">
+                <span class="editor-btn flex content-center justify-center py-2 px-0 m-1 text-gray-900 bg-white rounded-lg border border-gray-300 hover:bg-gray-100 focus:ring-4 focus:outline-none focus:ring-gray-200" data-action="bold" data-tag-name="b" title="Bold">
+                  <img src="https://img.icons8.com/fluency-systems-filled/48/000000/bold.png" class="w-1/3"/>
+                </span>
+                <span class="editor-btn flex content-center justify-center py-2 px-0 m-1 text-gray-900 bg-white rounded-lg border border-gray-300 hover:bg-gray-100 focus:ring-4 focus:outline-none focus:ring-gray-200"  data-action="italic" data-tag-name="i" title="Italic">
+                  <img src="https://img.icons8.com/fluency-systems-filled/48/000000/italic.png" class="w-1/3"/>
+                </span>
+                <span class="editor-btn flex content-center justify-center py-2 px-0 m-1 text-gray-900 bg-white rounded-lg border border-gray-300 hover:bg-gray-100 focus:ring-4 focus:outline-none focus:ring-gray-200 "  data-action="underline" data-tag-name="u" title="Underline">
+                  <img src="https://img.icons8.com/fluency-systems-filled/48/000000/underline.png" class="w-1/3"/>
+                </span>
+                </div>
+          </div>
+        <div class="content-area">
+          <div class="visuell-view" contenteditable>
+          <textarea placeholder="Character Description" required id="resultat" class="html-view"></textarea></div>
+      </div>
         </div>
         <br>
         <div class="form-example">
           <input type="submit" id="form_Submit" class="inline-flex items-center py-2 px-4 text-sm font-medium text-center text-gray-900 bg-white rounded-lg border border-gray-300 hover:bg-gray-100 focus:ring-4 focus:outline-none focus:ring-gray-200" value="Submit new Character!" />
         </div>
       </form>
+      <br>
   </div>
 </body>
 </html> 
