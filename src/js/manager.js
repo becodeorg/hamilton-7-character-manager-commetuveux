@@ -24,7 +24,16 @@ async function getCharacters() {
         Node.querySelector("#readMore_button").href = `card.html?${chars[i].id}`;
         Node.querySelector("#readMore_button").innerText = `See the Character`;
         Node.querySelector("#dropdown").id = `dropdown${[i]}`;
+        Node.querySelector("#container_card").id = `container_card${[i]}`;
         Node.querySelector("#dropdownButton").setAttribute('data-dropdown-toggle', `dropdown${[i]}`);
+        Node.querySelector("#dropdownButton").addEventListener("click", function() {
+            document.querySelector(`#container_card${[i]}`).vanillaTilt.destroy();
+            document.body.addEventListener("click", function(e) {
+                if(e.target.tagName !== "svg") {
+                    VanillaTilt.init(document.querySelector(`#container_card${[i]}`));
+                }
+            })
+        })
         Node.querySelector("#dropdownDelete").addEventListener("click", async () => {
             if (confirm(`You are about to delete ${chars[i].name}'s entry. Are you sure you want to continue? This cannot be undone.`)) {
                 await axios.delete(`https://character-database.becode.xyz/characters/${chars[i].id}`);
