@@ -22,3 +22,7 @@ textarea {
   padding: 5px;
   overflow: auto;
 }
+
+.h-85 {
+  height: 315px;
+}
