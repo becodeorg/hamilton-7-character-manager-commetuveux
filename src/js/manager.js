@@ -1,13 +1,14 @@
 import axios from "axios";
 
-const container = document.querySelector('template');
+const container = document.querySelector("template");
 
 window.onload = getCharacters();
 
 async function getCharacters() {
     try {
-    const resp = await axios.get('https://character-database.becode.xyz/characters');
+    const resp = await axios.get("https://character-database.becode.xyz/characters");
     const chars = await resp.data;
+    const md = new Remarkable();
     // console.log(chars);
     for (let i = 0; i < chars.length; i++) {
         // console.log(chars[i].image)
@@ -20,11 +21,20 @@ async function getCharacters() {
         }
         Node.querySelector("#card_charName").innerText = `${chars[i].name}`;
         Node.querySelector("#card_nickName").innerText = `${chars[i].shortDescription}`;
-        Node.querySelector("#card_description").innerHTML = `${chars[i].description}`;
+        Node.querySelector("#card_description").innerHTML = md.render(`${chars[i].description}`);
         Node.querySelector("#readMore_button").href = `card.html?${chars[i].id}`;
         Node.querySelector("#readMore_button").innerText = `See the Character`;
         Node.querySelector("#dropdown").id = `dropdown${[i]}`;
-        Node.querySelector("#dropdownButton").setAttribute('data-dropdown-toggle', `dropdown${[i]}`);
+        Node.querySelector("#container_card").id = `container_card${[i]}`;
+        Node.querySelector("#dropdownButton").setAttribute("data-dropdown-toggle", `dropdown${[i]}`);
+        Node.querySelector("#dropdownButton").addEventListener("click", function() {
+            document.querySelector(`#container_card${[i]}`).vanillaTilt.destroy();
+            document.body.addEventListener("click", function(e) {
+                if(e.target.tagName !== "svg") {
+                    VanillaTilt.init(document.querySelector(`#container_card${[i]}`));
+                }
+            })
+        })
         Node.querySelector("#dropdownDelete").addEventListener("click", async () => {
             if (confirm(`You are about to delete ${chars[i].name}'s entry. Are you sure you want to continue? This cannot be undone.`)) {
                 await axios.delete(`https://character-database.becode.xyz/characters/${chars[i].id}`);
@@ -40,14 +50,14 @@ async function getCharacters() {
     document.querySelector("#tilt").src = "vanilla-tilt.js";
     let searchBar = document.querySelector("#searchBar");
     searchBar.classList.remove("hidden");
-    searchBar.addEventListener('keyup', (event) => {
+    searchBar.addEventListener("keyup", (event) => {
         console.log(event.key)
             if (searchBar.value.length == 0) {
                 
             }
     });
     document.querySelector("#flowbite").src = "https://unpkg.com/flowbite@1.5.3/dist/flowbite.js";
-    document.querySelector("#loading").classList.add('hidden')
+    document.querySelector("#loading").classList.add("hidden")
     }
     catch (error) {
         console.log(error);
