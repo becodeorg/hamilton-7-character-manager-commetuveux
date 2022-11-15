@@ -7,6 +7,8 @@
     <title>form</title>
     <link rel="icon" href="./src/assets/serveur.png">
     <link rel="stylesheet" href="./src/index.css">
+    <link href="https://cdn.quilljs.com/1.3.6/quill.snow.css" rel="stylesheet">
+    <script src="https://cdn.quilljs.com/1.3.6/quill.js" type="module" defer></script>
     <script src="./src/js/form.js" type="module" defer></script>
 </head>
 <body class="bg-gray-800">
@@ -26,28 +28,15 @@
         </div>
         <br>
 
-        <div class="wp-webdeasy-comment-editor">
-          <div class="toolbar">
-              <div class="box flex flex-row justify-end bg-slate-800 rounded pt-2 p-2">
-                <span class="editor-btn flex content-center justify-center py-2 px-0 m-1 text-gray-900 bg-white rounded-lg border border-gray-300 hover:bg-gray-100 focus:ring-4 focus:outline-none focus:ring-gray-200" data-action="bold" data-tag-name="b" title="Bold">
-                  <img src="https://img.icons8.com/fluency-systems-filled/48/000000/bold.png" class="w-1/3"/>
-                </span>
-                <span class="editor-btn flex content-center justify-center py-2 px-0 m-1 text-gray-900 bg-white rounded-lg border border-gray-300 hover:bg-gray-100 focus:ring-4 focus:outline-none focus:ring-gray-200"  data-action="italic" data-tag-name="i" title="Italic">
-                  <img src="https://img.icons8.com/fluency-systems-filled/48/000000/italic.png" class="w-1/3"/>
-                </span>
-                <span class="editor-btn flex content-center justify-center py-2 px-0 m-1 text-gray-900 bg-white rounded-lg border border-gray-300 hover:bg-gray-100 focus:ring-4 focus:outline-none focus:ring-gray-200 "  data-action="underline" data-tag-name="u" title="Underline">
-                  <img src="https://img.icons8.com/fluency-systems-filled/48/000000/underline.png" class="w-1/3"/>
-                </span>
-                </div>
-          </div>
-        <div class="content-area">
-          <div class="visuell-view" contenteditable>
-          <textarea placeholder="Character Description" required id="resultat" class="html-view"></textarea></div>
-      </div>
+        <div id="editor">
+          <p>Hello World!</p>
+          <p>Some initial <strong>bold</strong> text</p>
         </div>
+
         <br>
         <div class="form-example">
           <input type="submit" id="form_Submit" class="inline-flex items-center py-2 px-4 text-sm font-medium text-center text-gray-900 bg-white rounded-lg border border-gray-300 hover:bg-gray-100 focus:ring-4 focus:outline-none focus:ring-gray-200" value="Submit new Character!" />
+          <a id="readMore_button" href="index.html" class="inline-flex items-center py-2 px-4 text-sm font-medium text-center text-gray-900 bg-white rounded-lg border border-gray-300 hover:bg-gray-100 focus:ring-4 focus:outline-none focus:ring-gray-200">Return to List</a>
         </div>
       </form>
       <br>

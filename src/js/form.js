@@ -49,10 +49,13 @@ const urlId = url.search.split('?')[1];
 if (urlId === undefined) {
   document.querySelector('#form_Submit').addEventListener("click", (event) => {
     event.preventDefault();
-    const input = Array.from(document.querySelectorAll("input[type=text], textarea"));
+    const input = Array.from(document.querySelectorAll("input[type=text]"));
     const values = input.map(({ value }) => value.trim());
-    const [name, shortDescription, description] = values;
-    const picturez = document.getElementById("pictureImage").src.replace('data:image/', '').replace(/^.+,/, '');
+    const [name, shortDescription] = values;
+    // const description = document.querySelector(".ql-editor").innerHTML;
+    const descz = Array.from(document.querySelector('.ql-editor').children, ({innerHTML}) => innerHTML.trim()).filter(Boolean).join('<br>');
+    console.log(descz)
+    const picturez = document.getElementById("pictureImage").src.replace("data:image/", "").replace(/^.+,/, "");
     console.log(values);
     if (confirm(`You are about to create a new entry for ${values[0]}. Is that what you want ?`)) {
       try {
@@ -60,7 +63,7 @@ if (urlId === undefined) {
             image: picturez,
             name: name,
             shortDescription:shortDescription,
-            description: description
+            description: descz
         });
         alert('Character successfully added!')
         window.location.href = "index.html"
@@ -83,18 +86,20 @@ else {
   console.log(urlId);
   const charName = document.querySelector('input[name="name"]');
   const charNickname = document.querySelector('input[name="nickname"]');
-  const charDesc = document.querySelector('textarea');
+  const charDesc = document.querySelector('#editor');
   const charImg = document.querySelector('#pictureImage');
   console.log(charImg)
   charName.value = char.name;
   charNickname.value = char.shortDescription;
-  charDesc.value = char.description;
+  charDesc.innerHTML = char.description;
   charImg.src = `data:image;base64,${char.image}`;
   document.querySelector('#form_Submit').addEventListener("click", (event) => {
     event.preventDefault();
-    const input = Array.from(document.querySelectorAll("input[type=text], textarea"));
+    const input = Array.from(document.querySelectorAll("input[type=text]"));
     const values = input.map(({ value }) => value.trim());
-    const [name, shortDescription, description] = values;
+    const [name, shortDescription] = values;
+    // const description = document.querySelector(".ql-editor").innerHTML;
+    const descz = Array.from(document.querySelector('.ql-editor').children, ({innerHTML}) => innerHTML.trim()).filter(Boolean).join('<br>');
     const picturez = document.getElementById("pictureImage").src.replace('data:image/', '').replace(/^.+,/, '');
     console.log(values);
     console.log(picturez);
@@ -104,7 +109,7 @@ else {
             image: picturez,
             name: name,
             shortDescription:shortDescription,
-            description: description
+            description: descz
         });
         alert('Character successfully updated!')
         window.location.href = "index.html";
@@ -124,181 +129,14 @@ else {
 
 //WYSIWYG
 
-// define vars
-const editor = document.getElementsByClassName('wp-webdeasy-comment-editor')[0];
-const toolbar = editor.getElementsByClassName('toolbar')[0];
-const buttons = toolbar.querySelectorAll('.editor-btn:not(.has-submenu)');
-const contentArea = editor.getElementsByClassName('content-area')[0];
-const visuellView = contentArea.getElementsByClassName('visuell-view')[0];
-const htmlView = contentArea.getElementsByClassName('html-view')[0];
-const modal = document.getElementsByClassName('modal')[0];
-
-// add active tag event
-document.addEventListener('selectionchange', selectionChange);
-
-// add paste event
-visuellView.addEventListener('paste', pasteEvent);
-
-// add toolbar button actions
-for(let i = 0; i < buttons.length; i++) {
-  let button = buttons[i];
-  
-  button.addEventListener('click', function(e) {
-    let action = this.dataset.action;
-    
-    switch(action) {
-      case 'bold':
-        execCodeAction(this, editor);
-        console.log (this)
-        break;
-      case 'italic':
-        execCodeAction(this, editor);
-        console.log (this)
-        break;
-      case 'underline':
-        execCodeAction(this, editor);
-        console.log (this)
-        break;
-      default:
-        execDefaultAction(action);
-    }
-    
-  });
-}
-
-/** 
- * This function toggles between visual and html view
- */
-function execCodeAction(button, editor) {
-
-  if(button.classList.contains('active')) { // show visuell view
-    visuellView.innerHTML = htmlView.value;
-    htmlView.style.display = 'none';
-    visuellView.style.display = 'block';
-
-    button.classList.remove('active');     
-  } else {  // show html view
-    htmlView.innerText = visuellView.innerHTML;
-    visuellView.style.display = 'none';
-    htmlView.style.display = 'block';
-
-    button.classList.add('active'); 
-  }
-}
-
-
-/**
- * This function executes all 'normal' actions
- */
-function execDefaultAction(action) {
-  document.navigator.write(action, false);
-}
-
-/**
- * Saves the current selection
- */
-function saveSelection() {
-    if(window.getSelection) {
-        sel = window.getSelection();
-        if(sel.getRangeAt && sel.rangeCount) {
-            let ranges = [];
-            for(var i = 0, len = sel.rangeCount; i < len; ++i) {
-                ranges.push(sel.getRangeAt(i));
-            }
-            return ranges;
-        }
-    } else if (document.selection && document.selection.createRange) {
-        return document.selection.createRange();
-    }
-    return null;
-}
-
-/**
- *  Loads a saved selection
- */
-function restoreSelection(savedSel) {
-    if(savedSel) {
-        if(window.getSelection) {
-            sel = window.getSelection();
-            sel.removeAllRanges();
-            for(var i = 0, len = savedSel.length; i < len; ++i) {
-                sel.addRange(savedSel[i]);
-            }
-        } else if(document.selection && savedSel.select) {
-            savedSel.select();
-        }
-    }
-}
-
-/**
- * Sets the current selected format buttons active/inactive
- */ 
-function selectionChange(e) {
-  
-  for(let i = 0; i < buttons.length; i++) {
-    let button = buttons[i];
-    
-    // don't remove active class on code toggle button
-    if(button.dataset.action === 'toggle-view') continue;
-    
-    button.classList.remove('active');
-  }
-  
-  if(!childOf(window.getSelection().anchorNode.parentNode, editor)) return false;
-  
-  parentTagActive(window.getSelection().anchorNode.parentNode);
-}
-
-/**
- * Checks if the passed child has the passed parent
- */
-function childOf(child, parent) {
-  return parent.contains(child);
-}
-
-/**
- * Sets the tag active that is responsible for the current element
- */
-function parentTagActive(elem) {
-  if(!elem ||!elem.classList || elem.classList.contains('visuell-view')) return false;
-  
-  let toolbarButton;
-  
-  // active by tag names
-  let tagName = elem.tagName.toLowerCase();
-  toolbarButton = document.querySelectorAll(`.toolbar .editor-btn[data-tag-name="${tagName}"]`)[0];
-  if(toolbarButton) {
-    toolbarButton.classList.add('active');
-  }
-  
-  // active by text-align
-  let textAlign = elem.style.textAlign;
-  toolbarButton = document.querySelectorAll(`.toolbar .editor-btn[data-style="textAlign:${textAlign}"]`)[0];
-  if(toolbarButton) {
-    toolbarButton.classList.add('active');
-  }
-  
-  return parentTagActive(elem.parentNode);
-}
-
-/**
- * Handles the paste event and removes all HTML tags
- */
-function pasteEvent(e) {
-  e.preventDefault();
-  
-  let text = (e.originalEvent || e).clipboardData.getData('text/plain');
-  document.execCommand('insertHTML', false, text);
-}
-
-/**
- * This functions adds a paragraph tag when the enter key is pressed
- */
-function addParagraphTag(evt) {
-  if (evt.keyCode == '13') {
-    
-    // don't add a p tag on list item
-    if(window.getSelection().anchorNode.parentNode.tagName === 'LI') return;
-    document.execCommand('formatBlock', false, 'p');
-  }
-}
+var quill = new Quill("#editor", {
+  modules: {
+    toolbar: [
+      [{ header: [1, 2, 3, 4, 5, 6] }],
+      ["bold", "italic", "underline"],
+      ["code-block"]
+    ]
+  },
+  placeholder: "Please enter the character's description.",
+  theme: "snow"
+});

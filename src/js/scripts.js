@@ -22,7 +22,7 @@ async function getCharacters() {
     charImg.setAttribute('src', `data:image;base64,${chars.image}`)
     charName.innerText = chars.name;
     charNickname.innerText = chars.shortDescription;
-    charDesc.innerText = chars.description;
+    charDesc.innerHTML = chars.description;
     dropdownEdit.href = `form.html?${urlId}`
     }
     catch (error) {
@@ -71,8 +71,8 @@ console.log()} */
 /* let scaleOnHover() {
     addEventListene.#card('hover', 'scaleOn'),
 */
-VanillaTilt.init (document.querySelector("#card"), {
+/* VanillaTilt.init (document.querySelector("#card"), {
     max:5, 
     speed:400,
     glare: true,
-});
+}); */
