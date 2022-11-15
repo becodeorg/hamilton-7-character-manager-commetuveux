@@ -1,12 +1,12 @@
 import axios from "axios";
 
-const container = document.querySelector('template');
+const container = document.querySelector("template");
 
 window.onload = getCharacters();
 
 async function getCharacters() {
     try {
-    const resp = await axios.get('https://character-database.becode.xyz/characters');
+    const resp = await axios.get("https://character-database.becode.xyz/characters");
     const chars = await resp.data;
     const md = new Remarkable();
     // console.log(chars);
@@ -26,7 +26,7 @@ async function getCharacters() {
         Node.querySelector("#readMore_button").innerText = `See the Character`;
         Node.querySelector("#dropdown").id = `dropdown${[i]}`;
         Node.querySelector("#container_card").id = `container_card${[i]}`;
-        Node.querySelector("#dropdownButton").setAttribute('data-dropdown-toggle', `dropdown${[i]}`);
+        Node.querySelector("#dropdownButton").setAttribute("data-dropdown-toggle", `dropdown${[i]}`);
         Node.querySelector("#dropdownButton").addEventListener("click", function() {
             document.querySelector(`#container_card${[i]}`).vanillaTilt.destroy();
             document.body.addEventListener("click", function(e) {
@@ -50,14 +50,14 @@ async function getCharacters() {
     document.querySelector("#tilt").src = "vanilla-tilt.js";
     let searchBar = document.querySelector("#searchBar");
     searchBar.classList.remove("hidden");
-    searchBar.addEventListener('keyup', (event) => {
+    searchBar.addEventListener("keyup", (event) => {
         console.log(event.key)
             if (searchBar.value.length == 0) {
                 
             }
     });
     document.querySelector("#flowbite").src = "https://unpkg.com/flowbite@1.5.3/dist/flowbite.js";
-    document.querySelector("#loading").classList.add('hidden')
+    document.querySelector("#loading").classList.add("hidden")
     }
     catch (error) {
         console.log(error);
