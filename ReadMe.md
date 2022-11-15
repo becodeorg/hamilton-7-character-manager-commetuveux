@@ -6,6 +6,9 @@
   And the of instructions
   [Here](https://github.com/becodeorg/LIE-Hamilton-7/tree/main/01-main-course/02-the-hills/02-character-manager/ "Link to the instructions").
   
+  Fav Icon from:
+  [Freepik](https://www.flaticon.com/fr/icones-gratuites/futuriste"/)
+  
   
   
  ## Who built this? 
@@ -19,4 +22,4 @@
    
 ## Why?
   Working with _APIS_,deploying pages on __Github Pages___, using __Frameworks__.
-   
+ 
