@@ -26,3 +26,8 @@ textarea {
 .h-85 {
   height: 315px;
 }
+
+#editor {
+  height: 150px;
+  background-color: white;
+}
