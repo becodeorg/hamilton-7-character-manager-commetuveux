@@ -60,8 +60,8 @@ else {
   const char = await resp.data;
   console.log(char)
   console.log(urlId);
-  const charName = document.querySelector("input[name=`name`]");
-  const charNickname = document.querySelector("input[name=`nickname`]");
+  const charName = document.querySelector(`input[name="name"]`);
+  const charNickname = document.querySelector(`input[name="nickname"]`);
   const charDesc = document.querySelector("#editor");
   const charImg = document.querySelector("#pictureImage");
   console.log(charImg)
@@ -92,13 +92,15 @@ else {
     }
     catch (error) {
       console.log("There was une couille dans le pâté")
+      console.log(error)
     }
   }
   })
   }
   catch (error) {
     alert("There was an error while getting the character informations. Has it been removed by someone else ?");
-    window.location.href = "index.html"
+    console.log(error)
+    //window.location.href = "index.html"
   }
   document.querySelector("#form_Submit").value = "Update Character!"
 };
