@@ -8,25 +8,23 @@ async function getCharacters() {
     try {
     const resp = await axios.get(`https://character-database.becode.xyz/characters/${urlId}`);
     const chars = await resp.data;
-    console.log(chars)
-    console.log(urlId);
-    console.log(document.title);
     document.title = `${chars.name}'s Card`
-    console.log(document.title);
     const charName = document.querySelector('#card_charName');
     const charNickname = document.querySelector('#card_nickName');
     const charDesc = document.querySelector('#card_description');
     const charImg = document.querySelector('#card_image');
     const dropdownEdit = document.querySelector("#dropdown_Edit");
+    const md = new Remarkable();
     //const dropdownDel = document.querySelector("dropdown_Delete");
     charImg.setAttribute('src', `data:image;base64,${chars.image}`)
     charName.innerText = chars.name;
     charNickname.innerText = chars.shortDescription;
-    charDesc.innerHTML = chars.description;
+    charDesc.innerHTML = md.render(chars.description);
     dropdownEdit.href = `form.html?${urlId}`
     }
     catch (error) {
     console.log('There was une couille dans le pâté')
+    console.log(error);
     const charName = document.querySelector('#card_charName');
     const charNickname = document.querySelector('#card_nickName');
     const charDesc = document.querySelector('#card_description');
