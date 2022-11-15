@@ -85,12 +85,12 @@ else {
   console.log(urlId);
   const charName = document.querySelector('input[name="name"]');
   const charNickname = document.querySelector('input[name="nickname"]');
-  const charDesc = document.querySelector('textarea');
+  const charDesc = document.querySelector('#editor');
   const charImg = document.querySelector('#pictureImage');
   console.log(charImg)
   charName.value = char.name;
   charNickname.value = char.shortDescription;
-  charDesc.value = char.description;
+  charDesc.innerHTML = char.description;
   charImg.src = `data:image;base64,${char.image}`;
   document.querySelector('#form_Submit').addEventListener("click", (event) => {
     event.preventDefault();
