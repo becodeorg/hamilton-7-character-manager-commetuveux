@@ -18,5 +18,5 @@
    * JS.
    
 ## Why?
-  Wrking with _APIS_,deploying pages on __Github Pages___, using __Frameworks__.
+  Working with _APIS_,deploying pages on __Github Pages___, using __Frameworks__.
    
