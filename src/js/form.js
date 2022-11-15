@@ -52,9 +52,10 @@ if (urlId === undefined) {
     const input = Array.from(document.querySelectorAll("input[type=text]"));
     const values = input.map(({ value }) => value.trim());
     const [name, shortDescription] = values;
-    const description = document.querySelector(".ql-editor").innerHTML;
-    console.log(description)
-    const picturez = document.getElementById("pictureImage").src.replace('data:image/', '').replace(/^.+,/, '');
+    // const description = document.querySelector(".ql-editor").innerHTML;
+    const descz = Array.from(document.querySelector('.ql-editor').children, ({innerHTML}) => innerHTML.trim()).filter(Boolean).join('<br>');
+    console.log(descz)
+    const picturez = document.getElementById("pictureImage").src.replace("data:image/", "").replace(/^.+,/, "");
     console.log(values);
     if (confirm(`You are about to create a new entry for ${values[0]}. Is that what you want ?`)) {
       try {
@@ -62,7 +63,7 @@ if (urlId === undefined) {
             image: picturez,
             name: name,
             shortDescription:shortDescription,
-            description: description
+            description: descz
         });
         alert('Character successfully added!')
         window.location.href = "index.html"
@@ -97,7 +98,8 @@ else {
     const input = Array.from(document.querySelectorAll("input[type=text]"));
     const values = input.map(({ value }) => value.trim());
     const [name, shortDescription] = values;
-    const description = document.querySelector(".ql-editor").innerHTML;
+    // const description = document.querySelector(".ql-editor").innerHTML;
+    const descz = Array.from(document.querySelector('.ql-editor').children, ({innerHTML}) => innerHTML.trim()).filter(Boolean).join('<br>');
     const picturez = document.getElementById("pictureImage").src.replace('data:image/', '').replace(/^.+,/, '');
     console.log(values);
     console.log(picturez);
@@ -107,7 +109,7 @@ else {
             image: picturez,
             name: name,
             shortDescription:shortDescription,
-            description: description
+            description: descz
         });
         alert('Character successfully updated!')
         window.location.href = "index.html";
