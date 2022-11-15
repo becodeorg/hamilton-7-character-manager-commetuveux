@@ -8,6 +8,7 @@ async function getCharacters() {
     try {
     const resp = await axios.get("https://character-database.becode.xyz/characters");
     const chars = await resp.data;
+    const md = new Remarkable();
     // console.log(chars);
     for (let i = 0; i < chars.length; i++) {
         // console.log(chars[i].image)
@@ -20,7 +21,7 @@ async function getCharacters() {
         }
         Node.querySelector("#card_charName").innerText = `${chars[i].name}`;
         Node.querySelector("#card_nickName").innerText = `${chars[i].shortDescription}`;
-        Node.querySelector("#card_description").innerHTML = `${chars[i].description}`;
+        Node.querySelector("#card_description").innerHTML = md.render(`${chars[i].description}`);
         Node.querySelector("#readMore_button").href = `card.html?${chars[i].id}`;
         Node.querySelector("#readMore_button").innerText = `See the Character`;
         Node.querySelector("#dropdown").id = `dropdown${[i]}`;
