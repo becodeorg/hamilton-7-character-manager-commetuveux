@@ -49,10 +49,10 @@ const urlId = url.search.split('?')[1];
 if (urlId === undefined) {
   document.querySelector('#form_Submit').addEventListener("click", (event) => {
     event.preventDefault();
-    const input = Array.from(document.querySelectorAll("input[type=text], textarea"));
+    const input = Array.from(document.querySelectorAll("input[type=text]"));
     const values = input.map(({ value }) => value.trim());
     const [name, shortDescription] = values;
-    const description = document.querySelector("#editor").innerHTML;
+    const description = document.querySelector(".ql-editor").innerHTML;
     console.log(description)
     const picturez = document.getElementById("pictureImage").src.replace('data:image/', '').replace(/^.+,/, '');
     console.log(values);
@@ -94,10 +94,10 @@ else {
   charImg.src = `data:image;base64,${char.image}`;
   document.querySelector('#form_Submit').addEventListener("click", (event) => {
     event.preventDefault();
-    const input = Array.from(document.querySelectorAll("input[type=text], textarea"));
+    const input = Array.from(document.querySelectorAll("input[type=text]"));
     const values = input.map(({ value }) => value.trim());
     const [name, shortDescription] = values;
-    const description = document.querySelector("#editor").innerHTML;
+    const description = document.querySelector(".ql-editor").innerHTML;
     const picturez = document.getElementById("pictureImage").src.replace('data:image/', '').replace(/^.+,/, '');
     console.log(values);
     console.log(picturez);

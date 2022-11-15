@@ -22,7 +22,7 @@ async function getCharacters() {
     charImg.setAttribute('src', `data:image;base64,${chars.image}`)
     charName.innerText = chars.name;
     charNickname.innerText = chars.shortDescription;
-    charDesc.innerText = chars.description;
+    charDesc.innerHTML = chars.description;
     dropdownEdit.href = `form.html?${urlId}`
     }
     catch (error) {
